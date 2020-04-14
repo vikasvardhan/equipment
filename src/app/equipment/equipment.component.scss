@@ -1,0 +1,61 @@
+/* Boxes */
+.boxes {
+  margin-top: 20px;
+}
+
+.boxes .box {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  margin: 5px;
+  height: 265px;
+}
+
+.boxes .box img {
+  width: 100%;
+}
+
+.boxes .box .icons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.boxes .box label {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.boxes .box span {
+  font-size: 15px;
+  margin-left: 10px;
+}
+.boxes .box .main-content {
+  margin-top: 10px;
+  height: 150px;
+}
+.boxes .box .content {
+  float: left;
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid grey;
+}
+.boxes .box .content-img {
+  float: left;
+  width: 45%;
+  height: 100%;
+  margin-left: 10px;
+}
+.boxes .box .content-warranty {
+  margin-top: 10px;
+}
+
+.boxes .box .dates {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.boxes .box .dates .dateField {
+  padding-right: 10px;
+  width: 40%;
+}

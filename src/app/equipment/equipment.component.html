@@ -1,0 +1,102 @@
+<section class="Equipment">
+  <div class="container">
+    <div class="boxes">
+      <mat-card class="box">
+        <mat-card-header> </mat-card-header>
+        <mat-card-content style="text-align: center;">
+          <button mat-fab style="margin-top: 30%;">
+            <mat-icon (click)="addEquipment()">add</mat-icon>
+          </button>
+        </mat-card-content>
+        <mat-card-actions> </mat-card-actions>
+      </mat-card>
+      <mat-card class="box" *ngFor="let item of equipments">
+        <mat-card-header>
+          <mat-card-title>{{ item.value.SerialNumber }}</mat-card-title>
+        </mat-card-header>
+        <div class="icons">
+          <mat-icon color="primary" (click)="editEquipment(item)"
+            >edit</mat-icon
+          >
+          <mat-icon color="warn" (click)="deleteEquipment(item)"
+            >delete</mat-icon
+          >
+        </div>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <div class="main-content">
+            <div class="content">
+              <div>
+                <label>Make:</label><span>{{ item.value.Make }}</span>
+              </div>
+              <div>
+                <label>Model:</label><span>{{ item.value.Model }}</span>
+              </div>
+              <div>
+                <label>Meter Reading:</label
+                ><span>{{ item.value.MeterReading }}</span>
+              </div>
+            </div>
+            <div class="content-img">
+              <img src="../../assets/equipment1.png" />
+            </div>
+          </div>
+          <div
+            class="content-warranty"
+            *ngIf="item.value.Warranty && !item.value.edit"
+            (click)="item.value.edit = true"
+          >
+            <div>
+              <label>Warranty</label>
+            </div>
+            <div style="float: left; margin-right: 10px;">
+              <span>Start Date:</span
+              ><span>{{
+                item.value.Warranty.StartDate | date: "shortDate"
+              }}</span>
+            </div>
+            <div style="float: left;">
+              <span>End Date:</span
+              ><span>{{
+                item.value.Warranty.EndDate | date: "shortDate"
+              }}</span>
+            </div>
+          </div>
+          <div *ngIf="item.value.Warranty && item.value.edit" class="dates">
+            <mat-form-field appearance="legacy" class="dateField">
+              <mat-label>Start Date</mat-label>
+              <input
+                matInput
+                type="date"
+                [(ngModel)]="item.value.Warranty.StartDate"
+                name="startDate"
+              />
+            </mat-form-field>
+            <mat-form-field appearance="legacy" class="dateField">
+              <mat-label>End Date</mat-label>
+              <input
+                matInput
+                type="date"
+                [(ngModel)]="item.value.Warranty.EndDate"
+                name="endDate"
+              />
+            </mat-form-field>
+            <button mat-mini-fab color="primary" (click)="saveWarranty(item)">
+              <mat-icon>check</mat-icon>
+            </button>
+          </div>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center;">
+          <button
+            mat-raised-button
+            color="primary"
+            *ngIf="!item.value.Warranty && !item.value.edit"
+            (click)="addWarranty(item.value)"
+          >
+            Click to Add Warranty!
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>

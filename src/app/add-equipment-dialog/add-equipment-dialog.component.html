@@ -1,0 +1,48 @@
+<form class="container">
+  <h1>Add Equipment</h1>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Serial Number</mat-label>
+      <input matInput [(ngModel)]="addObj.SerialNumber" name="serial" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Make</mat-label>
+      <input matInput [(ngModel)]="addObj.Make" name="make" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Model</mat-label>
+      <input matInput [(ngModel)]="addObj.Model" name="model" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Meter Reading</mat-label>
+      <input matInput [(ngModel)]="addObj.MeterReading" name="meter" />
+    </mat-form-field>
+  </p>
+  <p>
+    <button
+      mat-raised-button
+      color="primary"
+      *ngIf="!edit"
+      style="margin-right: 15px;"
+      (click)="addEquipment()"
+    >
+      Add
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="edit"
+      color="primary"
+      style="margin-right: 15px;"
+      (click)="editEquipment()"
+    >
+      Edit
+    </button>
+    <button mat-raised-button (click)="cancel()">Cancel</button>
+  </p>
+</form>
