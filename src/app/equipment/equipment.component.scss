@@ -22,8 +22,11 @@
   cursor: pointer;
 }
 
+.boxes .box .title {
+  color: #e8491d;
+}
+
 .boxes .box label {
-  font-weight: bold;
   font-size: 15px;
 }
 
@@ -48,7 +51,8 @@
   margin-left: 10px;
 }
 .boxes .box .content-warranty {
-  margin-top: 10px;
+  margin-top: 5px;
+  height: 60px;
 }
 
 .boxes .box .dates {

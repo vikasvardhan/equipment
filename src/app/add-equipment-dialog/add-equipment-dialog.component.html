@@ -3,28 +3,74 @@
   <p>
     <mat-form-field appearance="legacy">
       <mat-label>Serial Number</mat-label>
-      <input matInput [(ngModel)]="addObj.SerialNumber" name="serial" />
+      <input
+        matInput
+        [(ngModel)]="addObj.SerialNumber"
+        name="serial"
+        #serial="ngModel"
+        required
+      />
+      <mat-error *ngIf="serial.invalid && (serial.dirty || serial.touched)">
+        <div *ngIf="serial.errors.required">
+          &bull; Serial Number is required.
+        </div>
+      </mat-error>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="legacy">
       <mat-label>Make</mat-label>
-      <input matInput [(ngModel)]="addObj.Make" name="make" />
+      <input
+        matInput
+        [(ngModel)]="addObj.Make"
+        #make="ngModel"
+        required
+        name="make"
+      />
+      <mat-error *ngIf="make.invalid && (make.dirty || make.touched)">
+        <div *ngIf="make.errors.required">
+          &bull; Make is required.
+        </div>
+      </mat-error>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="legacy">
       <mat-label>Model</mat-label>
-      <input matInput [(ngModel)]="addObj.Model" name="model" />
+      <input
+        matInput
+        [(ngModel)]="addObj.Model"
+        required
+        #model="ngModel"
+        name="model"
+      />
+      <mat-error *ngIf="model.invalid && (model.dirty || model.touched)">
+        <div *ngIf="model.errors.required">
+          &bull; Model is required.
+        </div>
+      </mat-error>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="legacy">
       <mat-label>Meter Reading</mat-label>
-      <input matInput [(ngModel)]="addObj.MeterReading" name="meter" />
+      <input
+        matInput
+        [(ngModel)]="addObj.MeterReading"
+        #meter="ngModel"
+        type="number"
+        required
+        name="meter"
+      />
+      <mat-error *ngIf="meter.invalid && (meter.dirty || meter.touched)">
+        <div *ngIf="meter.errors.required">
+          &bull; Meter Reading is required.
+        </div>
+      </mat-error>
     </mat-form-field>
   </p>
-  <p>
+
+  <div style="margin-bottom: 10px;">
     <button
       mat-raised-button
       color="primary"
@@ -44,5 +90,5 @@
       Edit
     </button>
     <button mat-raised-button (click)="cancel()">Cancel</button>
-  </p>
+  </div>
 </form>

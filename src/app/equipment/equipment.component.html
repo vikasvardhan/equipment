@@ -1,18 +1,22 @@
 <section class="Equipment">
   <div class="container">
     <div class="boxes">
+      <!-- Add Button Content -->
       <mat-card class="box">
         <mat-card-header> </mat-card-header>
         <mat-card-content style="text-align: center;">
-          <button mat-fab style="margin-top: 30%;">
-            <mat-icon (click)="addEquipment()">add</mat-icon>
+          <button mat-fab style="margin-top: 30%;" (click)="addEquipment()">
+            <mat-icon>add</mat-icon>
           </button>
         </mat-card-content>
         <mat-card-actions> </mat-card-actions>
       </mat-card>
+      <!-- Card Display Content -->
       <mat-card class="box" *ngFor="let item of equipments">
         <mat-card-header>
-          <mat-card-title>{{ item.value.SerialNumber }}</mat-card-title>
+          <mat-card-title class="title">{{
+            item.value.SerialNumber
+          }}</mat-card-title>
         </mat-card-header>
         <div class="icons">
           <mat-icon color="primary" (click)="editEquipment(item)"
@@ -41,13 +45,20 @@
               <img src="../../assets/equipment1.png" />
             </div>
           </div>
+          <mat-divider></mat-divider>
           <div
             class="content-warranty"
             *ngIf="item.value.Warranty && !item.value.edit"
-            (click)="item.value.edit = true"
           >
             <div>
-              <label>Warranty</label>
+              <button
+                mat-button
+                color="primary"
+                (click)="item.value.edit = true"
+              >
+                Warranty
+                <mat-icon style="font-size: 20px;">edit</mat-icon>
+              </button>
             </div>
             <div style="float: left; margin-right: 10px;">
               <span>Start Date:</span

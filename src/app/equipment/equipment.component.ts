@@ -19,8 +19,7 @@ export class EquipmentComponent implements OnInit {
   // Equipment Related
   ngOnInit() {
     this.equipService.getEquipment().subscribe((data) => {
-      this.equipments = data;
-      console.log(data);
+      this.equipments = data.reverse();
       this.getWarranties();
     });
   }
